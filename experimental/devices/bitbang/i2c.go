@@ -146,7 +146,7 @@ func (i *I2C) Tx(addr uint16, w, r []byte) error {
 // r is a slice of bytes that holds bytes read back from the device
 // readLen is a unint16 that specifies how many bytes to read back from the device
 
-func (i *I2C) ReadRepeatedStart(addr uint16, readLen uint16, w, r []byte) error {
+func (i *I2C) ReadRepeatedStart(addr uint16, w, r []byte) error {
 
 	i.mu.Lock()
 	defer i.mu.Unlock()
