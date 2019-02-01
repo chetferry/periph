@@ -436,7 +436,7 @@ func (i *I2C) readByte() (byte, bool) {
 	ack := i.sda.Read() == gpio.Low
 
 
-
+	i.writeSdaOpenDrain(false)
 	i.writeSclOpenDrain(true)
 
 	i.sleepHalfCycle()
