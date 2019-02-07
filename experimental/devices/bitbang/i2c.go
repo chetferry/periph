@@ -154,6 +154,7 @@ func (i *I2C) ReadRepeatedStart(addr uint16, w, r []byte) error {
 	defer runtime.UnlockOSThread()
 	//syscall.Setpriority(which, who, prio)
 
+	// Battery sleeps so wake it up
 	i.start()
 	i.sleepHalfCycle()
 	i.stop()
