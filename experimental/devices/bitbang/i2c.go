@@ -60,6 +60,8 @@ func New(clk gpio.PinIO, data gpio.PinIO, f physic.Frequency) (*I2C, error) {
 // Emulate open drain I/O
 // Set gpio to input and let external pull up pull it high for 1
 // Set gpio to output and drive low for 0
+// Board has 2.2K pullups to VCC on SCL and SDA lines, internal pullups are
+// too weak to work for i2C operation
 func (i *I2C) writeSdaOpenDrain(b bool) error {
 	var err error
 	if b {
